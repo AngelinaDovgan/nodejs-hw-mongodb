@@ -4,7 +4,7 @@ import pino from 'pino-http';
 import { env } from './utils/env';
 import { getContacts, getContactsById } from './services/contacts';
 
-const PORT = Number(env('PORT', '4000'));
+const PORT = Number(env('PORT', '3000'));
 
 const setupServer = () => {
     const app = express();
