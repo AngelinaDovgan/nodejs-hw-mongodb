@@ -1,7 +1,6 @@
 import express from 'express';
 import cors from 'cors';
 import pino from 'pino-http';
-
 import { env } from './utils/env';
 
 const PORT = Number(env('PORT', '3000'));
