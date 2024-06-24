@@ -52,6 +52,7 @@ export const patchContactController = async (req, res, next) => {
         message: 'Contact not found',
         data: {message: 'Contact not found'},
             });
+        
     return next(error);
     }
     
@@ -64,6 +65,7 @@ export const patchContactController = async (req, res, next) => {
         next(error);
     }  
 };
+
 
 export const deleteContactController = async (req, res, next) => {
     const { contactId } = req.params;
