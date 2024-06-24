@@ -56,11 +56,21 @@ export const patchContactController = async (req, res) => {
 
 export const deleteContactController = async (req, res) => {
     const { contactId } = req.params;
-    const contact = await deleteContact(contactId);
 
-    if (!contact) {
-        next(createHttpError(404, 'Contact not found'));
-        return;
+    try {
+        const contact = await deleteContact(contactId);
+
+        if (!contact) {
+            return next(createHttpError(404, 'Contact not found',
+                {
+                    status: 404,
+                    message: 'Contact not found',
+                }
+            ));
+
+        }
+        res.status(204).send();
+    } catch (error) {
+        next(error);
     }
-    res.status(204).send();
 };
