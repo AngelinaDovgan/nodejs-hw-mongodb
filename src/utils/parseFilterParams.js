@@ -13,7 +13,7 @@ export const parseFilterParams = ({type, isFavourite}) => {
     const parsedFavourite = parseBoolean(isFavourite);
 
     return {
-        contactType: parsedType,
+        type: parsedType,
         isFavourite: parsedFavourite,
     };
 };
