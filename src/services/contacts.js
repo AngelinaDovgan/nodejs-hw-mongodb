@@ -7,17 +7,18 @@ export const getContacts = async ({
     perPage = 10,
     sortOrder = SORT_ORDER.ASC,
     sortBy = 'name',
-    filter = {},
+    type = null,
+    isFavourite = null,
 }) => {
     const limit = perPage;
     const skip = (page - 1) * perPage;
 
     const contactsQuery = ContactsCollection.find();
-    if (filter.type) {
-        contactsQuery.where("type").equals(filter.type);
+    if (type !== null) {
+        contactsQuery.where("contactType").equals(type);
     }
-    if (filter.favourite) {
-        contactsQuery.where("isFavourite").equals(filter.isFavourite);
+    if (isFavourite !== null) {
+        contactsQuery.where("isFavourite").equals(isFavourite);
     }
 
 

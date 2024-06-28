@@ -8,7 +8,9 @@ const parseBoolean = value => {
     return parsedValue;
 };
 
-export const parseFilterParams = ({type, isFavourite}) => {
+export const parseFilterParams = (query) => {
+    const { type, isFavourite } = query;
+
     const parsedType = typeList.includes(type) ? type : null;
     const parsedFavourite = parseBoolean(isFavourite);
 
