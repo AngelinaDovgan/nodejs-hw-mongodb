@@ -21,5 +21,6 @@ export const updateContactSchema = Joi.object({
     }),
     email: Joi.string().email(),
     isFavourite: Joi.boolean(),
+    phoneNumber: Joi.string().min(3).max(20),
     contactType: Joi.string().valid('work', 'home', 'personal'),
 });
