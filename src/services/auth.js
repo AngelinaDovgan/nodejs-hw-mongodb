@@ -3,7 +3,7 @@ import { UserCollection } from "../db/models/user.js";
 import bcrypt from 'bcrypt';
 import { randomBytes } from 'crypto';
 
-import { FIFTEEN_MINUTES, ONE_DAY } from "../constants/index.js";
+import { FIFTEEN_MINUTES, THIRTY_DAYS } from "../constants/index.js";
 import { SessionCollection } from "../db/models/session.js";
 
 export const registerUser = async (payload) => {
@@ -39,7 +39,7 @@ export const loginUser = async (payload) => {
         accessToken,
         refreshToken,
         accessTokenValidUntil: new Date(Date.now() + FIFTEEN_MINUTES),
-        refreshTokenValidUntil: new Date(Date.now() + ONE_DAY),
+        refreshTokenValidUntil: new Date(Date.now() + THIRTY_DAYS),
     });
 
 };
