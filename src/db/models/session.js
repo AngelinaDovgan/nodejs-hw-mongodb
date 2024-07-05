@@ -1,4 +1,4 @@
-import { Schema } from "mongoose";
+import { Schema, model } from "mongoose";
 
 const sessionSchema = new Schema({
     userId: { type: Schema.Types.ObjectId, ref: 'user' },
