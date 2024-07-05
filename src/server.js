@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import pino from 'pino-http';
 import { env } from './utils/env.js';
+import cookieParser from 'cookie-parser';
 
 import router from './routers/index.js';
 
@@ -33,6 +34,7 @@ const setupServer = () => {
     });
 
     app.use(router);
+    app.use(cookieParser());
 
     app.use('*', notFoundHandler);
 
