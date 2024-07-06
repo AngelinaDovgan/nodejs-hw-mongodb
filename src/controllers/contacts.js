@@ -5,12 +5,13 @@ import { parseSortParams } from "../utils/parseSortParams.js";
 import { parseFilterParams } from "../utils/parseFilterParams.js";
 
 export const getContactsController = async (req, res) => {
+    const { _id: userId } = req.user;
     const { page, perPage } = parsePaginationParams(req.query);
 
     const { sortBy, sortOrder } = parseSortParams(req.query);
 
     // const { type, isFavourite } = parseFilterParams(req.query);
-    const filter = parseFilterParams(req.query);
+    const filter = { ...parseFilterParams(req.query), userId };
 
         const contacts = await getContacts({
             page,
@@ -28,6 +29,7 @@ export const getContactsController = async (req, res) => {
 };
 
 export const getContactsByIdController = async (req, res, next) => {
+    const { _id: userId } = req.user;
         const { contactId } = req.params;
         try {
             const contact = await getContactsById(contactId);
@@ -92,7 +94,9 @@ export const patchContactController = async (req, res, next) => {
 
 
 export const deleteContactController = async (req, res, next) => {
+    const { _id: userId } = req.user;
     const { contactId } = req.params;
+   
 
     try {
         const contact = await deleteContact(contactId);
