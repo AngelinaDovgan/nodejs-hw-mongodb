@@ -88,3 +88,5 @@ export const resetPasswordController = async (req, res) => {
         data: {},
     });
 };
+
+////передавала об'єкт як аргумент, тому була помилка
