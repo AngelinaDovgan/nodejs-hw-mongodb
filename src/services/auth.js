@@ -7,6 +7,7 @@ import { SessionCollection } from "../db/models/session.js";
 import { SMTP } from '../constants/index.js';
 import { env } from '../utils/env.js';
 import { sendEmail } from "../utils/sendMail.js";
+import jwt from "jsonwebtoken";
 
 
 
