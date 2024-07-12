@@ -130,3 +130,29 @@ export const requestResetToken = async (email) => {
         html,
     });
 };
+
+export const resetPassword = async (payload) => {
+    let entries;
+
+    try {
+        entries = jwt.verify(payload.token, env('JWT_SECRET'));
+    } catch (err) {
+        if (err instanceof Error) throw createHttpError(401, err.message);
+        throw err;
+    }
+
+    const user = await UserCollection.findOne({
+        email: entries.email,
+        _id: entries.sub,
+    });
+    if (!user) {
+        throw createHttpError(404, 'User not found');
+    }
+
+    const encryptedPassword = await bcrypt.hash(payload.password, 10);
+
+    await UserCollection.updateOne(
+        { _id: user._id },
+        { password: encryptedPassword },
+    );
+};
