@@ -51,6 +51,7 @@ export const getContactsByIdController = async (req, res, next) => {
 export const createContactController = async (req, res, next) => {
     try {
         const { _id: userId } = req.user;
+        const contactData = ({ ...req.body, userId, photo });
         const photo = req.file;
 
         let photoUrl;
@@ -64,7 +65,6 @@ export const createContactController = async (req, res, next) => {
         }
     }
     }
-    const contactData = ({ ...req.body, userId, photo });
     const contact = await createContact(contactData);
       res.status(201).json({
         status: 201,
