@@ -30,16 +30,15 @@ const filter = { ...parseFilterParams(req.query), userId };
 };
 
 export const getContactsByIdController = async (req, res, next) => {
+    try {
     const { _id: userId } = req.user;
     const { contactId } = req.params;
-
-        try {
+        
             const contact = await getContactsById(contactId, userId);
             if (!contact) {
-                next(createHttpError(404, "Contact not found..."));
-                return;
+            return next(createHttpError(404, "Contact not found..."));   
             }
-            res.json({
+            res.status(200).json({
                 status: 200,
                 data: contact,
                 message: `Successfully found contact with id ${contactId}!`,
@@ -50,8 +49,19 @@ export const getContactsByIdController = async (req, res, next) => {
 };
     
 export const createContactController = async (req, res, next) => {
-    const { _id: userId } = req.user;
     try {
+        const { _id: userId } = req.user;
+    let photo = ''
+
+    if (req.file) {
+        {
+        if (env('ENABLE_CLOUDINARY') === 'true') {
+            photo = await saveFileToCloudinary(req.file, 'photo');
+        } else {
+            photo = saveFileToUploadDir(req.file, 'photo');
+        }
+    }
+    }
     const contactData = { ...req.body, userId };
         const contact = await createContact(contactData);
       res.status(201).json({
