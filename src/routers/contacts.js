@@ -13,7 +13,7 @@ router.use(authenticate);
 router.get('/', ctrlWrapper(getContactsController));
 router.get('/:contactId', isValidId, ctrlWrapper(getContactsByIdController));
 
-router.post('', validateBody(createContactSchema), upload.single('photo'), ctrlWrapper(createContactController));
+router.post('/', validateBody(createContactSchema), upload.single('photo'), ctrlWrapper(createContactController));
 router.patch('/:contactId', isValidId, validateBody(updateContactSchema), upload.single('photo'), ctrlWrapper(patchContactController));
 router.delete('/:contactId', isValidId, ctrlWrapper(deleteContactController));
 
