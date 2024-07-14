@@ -26,14 +26,17 @@ const setupServer = () => {
         }),
     );
 
-    app.get('/', (req, res) => {
+  
+
+    app.use(cookieParser());
+    app.use('/uploads', express.static(UPLOAD_DIR));
+
+      app.get('/', (req, res) => {
         res.json({
             message: 'Hello World!',
         });
-    });
-
-    app.use(cookieParser());
-    app.use('./uploads', express.static(UPLOAD_DIR));
+      });
+    
     app.use(router);
     
     
