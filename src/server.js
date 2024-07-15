@@ -8,8 +8,6 @@ import { errorHandler } from './middlewares/errorHandler.js';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
 import { UPLOAD_DIR } from './constants/index.js';
 
-// import { getContacts, getContactsById } from './services/contacts.js';
-
 const PORT = Number(env('PORT', '3000'));
 
 const setupServer = () => {
