@@ -9,12 +9,12 @@ info:
     This is a documentation of contacts app
 tags:
    - name: Contacts
-    description: Operations about users.
+    description: Operations about contacts.
   - name: Auth
     description: Auth operations.
 servers:
   - url: <http://localhost:3000>
-  - url: #посилання на задеплоєний сайт
+  - url: <https://hw6-email-and-images-t5to.onrender.com>
 paths:
   /contacts:
     get: 
