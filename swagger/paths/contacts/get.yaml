@@ -33,7 +33,7 @@ parameters:
     schema:
       type: string
       example: 'true'
-  responses:
+responses:
   '200':
     description: Successfully found contacts!
     content:

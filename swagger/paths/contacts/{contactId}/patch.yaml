@@ -34,6 +34,7 @@ requestBody:
             description: "Contact's type"
             type: string
             enum: ['work', 'home', 'personal']
+            example: 'work'
           isFavourite:
             description: "Is this contact favourite?"
             type: boolean
@@ -65,5 +66,5 @@ responses:
               $ref: '../../../components/schemas/contact.yaml'
   '401':
     $ref: '../../../components/responses/401.yaml'
-    '404':
-    $ref: '../../../components/responses/401.yaml'
+  '404':
+     $ref: '../../../components/responses/401.yaml'
