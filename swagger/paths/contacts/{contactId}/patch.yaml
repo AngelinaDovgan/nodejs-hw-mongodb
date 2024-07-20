@@ -36,7 +36,7 @@ requestBody:
             enum: ['work', 'home', 'personal']
             example: 'work'
           isFavourite:
-            description: "Is this contact favourite?"
+            description: 'Is this contact favourite?'
             type: boolean
             example: true
           photo:
@@ -67,4 +67,4 @@ responses:
   '401':
     $ref: '../../../components/responses/401.yaml'
   '404':
-     $ref: '../../../components/responses/401.yaml'
+    $ref: '../../../components/responses/404.yaml'

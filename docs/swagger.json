@@ -312,7 +312,7 @@
             "404": null,
             "$ref": "#/components/responses/401"
           },
-          "description": "Unauthorized error",
+          "description": "Not found error",
           "content": {
             "application/json": {
               "schema": {
@@ -325,11 +325,11 @@
                 "properties": {
                   "status": {
                     "type": "integer",
-                    "example": 401
+                    "example": 404
                   },
                   "message": {
                     "type": "string",
-                    "example": "UnauthorizedError"
+                    "example": "Not found error"
                   },
                   "data": {
                     "type": "object",
@@ -339,7 +339,7 @@
                     "properties": {
                       "message": {
                         "type": "string",
-                        "example": "Access token expired"
+                        "example": "Contact not found"
                       }
                     }
                   }
@@ -395,7 +395,7 @@
             },
             "$ref": "../../../components/responses/401.yaml"
           },
-          "description": "Unauthorized error",
+          "description": "Not found error",
           "content": {
             "application/json": {
               "schema": {
@@ -408,11 +408,11 @@
                 "properties": {
                   "status": {
                     "type": "integer",
-                    "example": 401
+                    "example": 404
                   },
                   "message": {
                     "type": "string",
-                    "example": "UnauthorizedError"
+                    "example": "Not found error"
                   },
                   "data": {
                     "type": "object",
@@ -422,7 +422,7 @@
                     "properties": {
                       "message": {
                         "type": "string",
-                        "example": "Access token expired"
+                        "example": "Contact not found"
                       }
                     }
                   }
@@ -535,7 +535,7 @@
             "$ref": "#/components/responses/401"
           },
           "404": {
-            "$ref": "#/components/responses/401"
+            "$ref": "#/components/responses/404"
           }
         }
       }
