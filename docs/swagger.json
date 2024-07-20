@@ -309,43 +309,10 @@
             }
           },
           "401": {
-            "404": null,
             "$ref": "#/components/responses/401"
           },
-          "description": "Not found error",
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "required": [
-                  "status",
-                  "message",
-                  "data"
-                ],
-                "properties": {
-                  "status": {
-                    "type": "integer",
-                    "example": 404
-                  },
-                  "message": {
-                    "type": "string",
-                    "example": "Not found error"
-                  },
-                  "data": {
-                    "type": "object",
-                    "required": [
-                      "message"
-                    ],
-                    "properties": {
-                      "message": {
-                        "type": "string",
-                        "example": "Contact not found"
-                      }
-                    }
-                  }
-                }
-              }
-            }
+          "404": {
+            "$ref": "#/components/responses/404"
           }
         }
       },
@@ -353,9 +320,9 @@
         "tags": [
           "Contacts"
         ],
-        "summary": "Delete contact",
+        "summary": "Видалити контакт",
         "operationId": "deleteContact",
-        "description": "Delete contact",
+        "description": "Видалити контакт",
         "security": [
           {
             "bearerAuth": []
@@ -374,9 +341,7 @@
         ],
         "responses": {
           "204": {
-            "401": null,
-            "404": null,
-            "description": "Delete contact",
+            "description": "Видалити контакт",
             "content": {
               "application/json": {
                 "schema": {
@@ -392,43 +357,13 @@
                   }
                 }
               }
-            },
-            "$ref": "../../../components/responses/401.yaml"
-          },
-          "description": "Not found error",
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "required": [
-                  "status",
-                  "message",
-                  "data"
-                ],
-                "properties": {
-                  "status": {
-                    "type": "integer",
-                    "example": 404
-                  },
-                  "message": {
-                    "type": "string",
-                    "example": "Not found error"
-                  },
-                  "data": {
-                    "type": "object",
-                    "required": [
-                      "message"
-                    ],
-                    "properties": {
-                      "message": {
-                        "type": "string",
-                        "example": "Contact not found"
-                      }
-                    }
-                  }
-                }
-              }
             }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
           }
         }
       },
@@ -667,9 +602,6 @@
                 },
                 "data": {
                   "type": "object",
-                  "required": [
-                    "message"
-                  ],
                   "properties": {
                     "message": {
                       "type": "string",

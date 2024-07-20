@@ -1,8 +1,40 @@
+# tags:
+#   - Contacts
+# summary: Delete contact
+# operationId: deleteContact
+# description: 'Delete contact'
+# security:
+#   - bearerAuth: []
+# parameters:
+#   - in: path
+#     name: contactId
+#     required: true
+#     schema:
+#       type: string
+#       example: '65ca67e7ae7f10c88b598384'
+# responses:
+#   '204':
+#     description: 'Delete contact'
+#     content:
+#       application/json:
+#         schema:
+#           type: object
+#           required:
+#             - status
+#           properties:
+#             status:
+#               type: integer
+#               example: 204
+#     '401':
+#     $ref: '../../../components/responses/401.yaml'
+#     '404':
+#   $ref: '../../../components/responses/404.yaml'
+
 tags:
   - Contacts
-summary: Delete contact
+summary: Видалити контакт
 operationId: deleteContact
-description: 'Delete contact'
+description: 'Видалити контакт'
 security:
   - bearerAuth: []
 parameters:
@@ -14,7 +46,7 @@ parameters:
       example: '65ca67e7ae7f10c88b598384'
 responses:
   '204':
-    description: 'Delete contact'
+    description: 'Видалити контакт'
     content:
       application/json:
         schema:
@@ -25,7 +57,7 @@ responses:
             status:
               type: integer
               example: 204
-    '401':
+  '401':
     $ref: '../../../components/responses/401.yaml'
-    '404':
-  $ref: '../../../components/responses/404.yaml'
+  '404':
+    $ref: '../../../components/responses/404.yaml'

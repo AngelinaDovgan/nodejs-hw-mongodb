@@ -1,3 +1,28 @@
+# description: Not found error
+# content:
+#   application/json:
+#     schema:
+#       type: object
+#       required:
+#         - status
+#         - message
+#         - data
+#       properties:
+#         status:
+#           type: integer
+#           example: 404
+#         message:
+#           type: string
+#           example: Not found error
+#         data:
+#           type: object
+#           required:
+#             - message
+#           properties:
+#             message:
+#               type: string
+#               example: 'Contact not found'
+
 description: Not found error
 content:
   application/json:
@@ -16,8 +41,6 @@ content:
           example: Not found error
         data:
           type: object
-          required:
-            - message
           properties:
             message:
               type: string
